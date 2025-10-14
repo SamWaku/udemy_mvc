@@ -1,0 +1,7 @@
+﻿services:
+  dotnetudemycore:
+    image: dotnetudemycore
+    build:
+      context: .
+      dockerfile: DotNetUdemyCore/Dockerfile
+
