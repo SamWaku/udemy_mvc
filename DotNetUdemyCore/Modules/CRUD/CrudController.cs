@@ -6,8 +6,11 @@ namespace DotNetUdemyCore.Modules.CRUD;
 [ApiController, Route("crud")]
 public class CrudController : ControllerBase
 {
-    public Task<int> SumOfTwoNumbers(CrudRequest request)
+    public CrudResponse SumOfTwoNumbers(CrudRequest request)
     {
-        return new request.Number1 + request.Number2;
+        return new CrudResponse
+        {
+            Message = $"Sum of two numbers is: {request.Number1 + request.Number2}"
+        };
     }
 }
