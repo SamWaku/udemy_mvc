@@ -6,6 +6,7 @@ namespace DotNetUdemyCore.Modules.CRUD;
 [ApiController, Route("crud")]
 public class CrudController : ControllerBase
 {
+    [HttpPost, Route("sum")]
     public CrudResponse SumOfTwoNumbers(CrudRequest request)
     {
         return new CrudResponse
