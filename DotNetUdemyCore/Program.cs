@@ -15,4 +15,6 @@ app.UseCors("Default");
 app.UseHttpsRedirection();
 app.MapControllers();
 
+app.UseExceptionHandler();
+
 app.Run();

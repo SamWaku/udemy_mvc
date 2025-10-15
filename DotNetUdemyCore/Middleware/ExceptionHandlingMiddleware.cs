@@ -1,9 +1,17 @@
 ﻿namespace DotNetUdemyCore.Middleware;
 
-public class ExceptionHandlingMiddleware(RequestDelegate next)
+public class ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
 {
-    public Task InvokeAsync(HttpContext httpContext)
+    public async Task InvokeAsync(HttpContext httpContext)
     {
-        return next(httpContext);
+        try
+        {
+            await next(httpContext);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }
