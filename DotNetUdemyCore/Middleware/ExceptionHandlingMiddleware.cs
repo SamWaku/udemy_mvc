@@ -1,6 +1,8 @@
-﻿namespace DotNetUdemyCore.Middleware;
+﻿using Microsoft.AspNetCore.Diagnostics;
 
-public class ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
+namespace DotNetUdemyCore.Middleware;
+
+public class ExceptionHandling(RequestDelegate next, ILogger<ExceptionHandling> logger)
 {
     public async Task InvokeAsync(HttpContext httpContext)
     {
@@ -10,8 +12,7 @@ public class ExceptionHandlingMiddleware(RequestDelegate next, ILogger<Exception
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            logger.LogError(e, "Unhandled exception");
         }
     }
 }

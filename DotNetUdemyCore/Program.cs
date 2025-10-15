@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Diagnostics;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
@@ -15,6 +17,6 @@ app.UseCors("Default");
 app.UseHttpsRedirection();
 app.MapControllers();
 
-app.UseExceptionHandler();
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.Run();
