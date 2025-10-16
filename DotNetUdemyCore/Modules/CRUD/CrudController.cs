@@ -14,4 +14,10 @@ public class CrudController : ControllerBase
             Message = $"Sum of two numbers is: {request.Number1 + request.Number2}"
         };
     }
+
+    [HttpGet]
+    public void GetException()
+    {
+        throw new UnauthorizedAccessException();
+    }
 }
