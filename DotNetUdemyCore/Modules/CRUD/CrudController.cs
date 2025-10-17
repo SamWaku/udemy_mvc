@@ -15,7 +15,7 @@ public class CrudController : ControllerBase
         };
     }
 
-    [HttpGet]
+    [HttpGet("unauthorized")]
     public void GetException()
     {
         throw new UnauthorizedAccessException();
